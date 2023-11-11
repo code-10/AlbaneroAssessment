@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <ul>
+        <li>
+            <a href="{{url_for('train.ticket_meta')}}">Book Ticket!</a>
+            <a href="{{url_for('train.ticket_history')}}">Your Tickets!</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

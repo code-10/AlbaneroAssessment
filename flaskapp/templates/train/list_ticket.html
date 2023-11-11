@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+        {% for item in stuff %}
+            <li>
+                {{item}}
+            </li>
+        {% endfor %}
+    </ul>
+    <div style="border:1px solid black; padding:10px 20px">
+        {% for ts in train_schedules %}
+            <div style="border: 1px solid blue; padding:8px 16px">
+                <ul>
+                    <li>TrainName : {{ts.train.name}}</li>
+                    <li>Arrival: {{ts.arrival}}</li>
+                    <li>Departure: {{ts.departure}}</li>
+                </ul>
+                <a href="{{url_for('train.book_ticket', schedule_id=ts.id, ticket_type='GENERAL')}}"> Book Normal </a>
+                <a href="{{url_for('train.book_ticket', schedule_id=ts.id, ticket_type='TATKAL')}}"> Book Tatkal </a>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

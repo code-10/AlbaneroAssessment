@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="border:2px solid black; padding:10px 20px">
+    {% for ticket in tickets %}
+        <div style="border:2px solid red; padding: 8px 16px">
+            <ul>
+                <li>TicketId : {{ticket.id}}</li>
+                <li>Arrive : {{ticket.schedule.arrival}}</li>
+                <li>Departure : {{ticket.schedule.departure}}</li>
+                <li>Status : {{ticket.status.value}}</li>
+                <li>Ticket Type : {{ticket.ticket_type.value}}</li>
+                <li><a href="{{url_for('train.cancel_ticket', ticket_id=ticket.id)}}">Cancel Ticket?</a></li>
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
